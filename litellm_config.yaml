@@ -1,0 +1,18 @@
+model_list:
+  - model_name: "claude-*"
+    litellm_params:
+      model: openai/qwen-coder
+      api_base: http://vllm:8000/v1
+      api_key: dummy
+      stream: true
+      extra_body:
+        parallel_tool_calls: false
+
+litellm_settings:
+  use_responses_api: false
+  drop_params: true
+
+general_settings:
+  drop_params: true
+  master_key: "os.environ/LITELLM_MASTER_KEY"
+  database_url: "os.environ/DATABASE_URL"
